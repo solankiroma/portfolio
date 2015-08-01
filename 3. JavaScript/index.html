@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+    <title>Learning JavaScript</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+
+       #circle {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          background-color: red;     
+        }
+
+    </style>
+
+</head>
+
+<body>
+  <button onclick = "alert('Hi')">Click Me!</button>
+
+  <button id = "myButton">You know you want to click me...</button>
+
+  <button id = "textchanger">Change first div text</button>
+
+  <div id = "firstdiv">Change the text</div>
+
+  <button id = "textAppender">Append some text</button>
+
+  <div id = "seconddiv">Javascript is ...</div>
+
+  <button id = "textCreator">Create some text</button>
+
+  <div id = "emptyDiv"></div>
+
+  <p id = "text">Some text</p>
+
+  <div id = "circle"></div>
+
+  <input id = "myinput" type = "text" value = "test" />
+
+  <button id = "styleChanger">Change the text!</button>
+
+  <div id = "thetext">The text</div>
+
+  <p>What is the weather?</p>
+  <input id = "weather" />
+  <button id = "myB">Submit</button>
+
+  <p>How many fingers am I holding up?</p>
+  <input id = "finger" />
+  <button id = "fingerB">Submit</button>
+
+  <p id = "arrayString"></p>
+
+   <p>How many fingers?</p>
+
+  <input id = "myNum" />
+  <button id = "guess">Guess!</button>
+
+  <p id=  "adding"></p>
+
+  <script type = "text/javascript">
+
+    var divid = "firstdiv";
+    var newText = document.getElementById("myinput").value;
+    var myArray = new Array();
+    myArray[0]="pizza";
+    myArray[1]="chocolate";
+
+    console.log(myArray);
+
+    var myOtherArray = ["rain", "sunshine"];
+
+    myOtherArray.push("snow");
+    myOtherArray.splice(1, 0, "hail", "cloudy");
+
+    console.log(myOtherArray.length);
+
+    console.log(myOtherArray);
+
+
+    //alert("Page loaded!");
+    //alert(document.getElementById("text").innerHTML
+
+       document.getElementById("text").innerHTML="Some more text";
+
+       document.getElementById("myButton").onclick = function() {
+            alert("Hello");
+       }
+
+       document.getElementById("textchanger").onclick = function() {
+            document.getElementById(divid).innerHTML = "This is awesome!";
+       }
+
+       document.getElementById("textAppender").onclick = function() {
+           document.getElementById("seconddiv").innerHTML = document.getElementById("seconddiv").innerHTML + "great";
+       }
+
+       document.getElementById("textCreator").onclick = function() {
+           document.getElementById("emptyDiv").innerHTML ="<ul><li>Cat</li><li>Dog</li></ul>";
+       }
+
+       document.getElementById("circle").onclick = function() {
+           document.getElementById("circle").style.display="none";
+       }
+
+       document.getElementById("styleChanger").onclick = function() {
+           newText = document.getElementById("myinput").value;
+           document.getElementById("thetext").innerHTML = newText;
+       }
+
+        document.getElementById("styleChanger").onclick = function() {
+           document.getElementById("thetext").innerHTML = myArray[0];
+       }
+
+       document.getElementById("myB").onclick = function() {
+         if(document.getElementById("weather").value == "rain") {
+           alert("it is raining");
+         }
+         else {
+          alert("it is not raining!");
+         }
+       }
+
+       document.getElementById("fingerB").onclick = function() {
+
+         var x = Math.random();
+         x = 6*x;
+         x = Math.floor(x);
+         if(x == document.getElementById("finger").value) {
+            alert("That's correct!");
+         } else {
+            alert("That's wrong! My number was " + x);
+         }
+
+       }
+
+       var mylist = ["pizza", "chocolate", "crepes"];
+
+       var arrayString = "";
+
+       var i = 0;
+
+       while(i < mylist.length) {
+          arrayString = arrayString+mylist[i] + " ";
+          i=i+1;
+       }
+
+       for (var i = 0; i < mylist.length; i++) {
+         //alert(mylist[i]);
+         arrayString = arrayString+mylist[i] + " ";
+
+       }
+      document.getElementById("arrayString").innerHTML=arrayString;
+
+      document.getElementById("guess").onclick = function() {
+        var gotIt=false;
+        var guesses = 1;
+        var x;
+        while(gotIt == false) {
+          x = Math.random();
+          x = 6 * x;
+          x = Math.floor(x);
+          if(document.getElementById("myNum").value == x) {
+            gotIt = true;
+          } else {
+             guesses++;
+          }
+        }
+
+        alert("Got it! It was a "+x+". It only took me "+guesses+" guesses!");
+      }
+
+      function alertMe() {
+        alert("its Roma!");
+      }
+
+      function adding(a, b) {
+        return(a + b);
+      }
+
+      document.getElementById("adding").innerHTML = adding(2, 18);
+
+  </script>
+
+</body>
+</html>
+
